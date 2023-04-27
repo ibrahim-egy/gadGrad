@@ -1,0 +1,33 @@
+{% include 'partials/header.html' %}
+
+
+
+<header id="header">
+    <nav class="nav">
+        <div class="nav__logo">
+            <!-- <i class="fa-solid fa-stethoscope"></i> -->
+            <p><span>Gad</span>Grad</p>
+        </div>
+        <ul class="nav__list">
+            <li class="nav__item active"><a href="#" class="nav__link">Home</a></li>
+            <li class="nav__item"><a href="#" class="nav__link">Get Started</a></li>
+            <!-- <li class="nav__item"><a href="#" class="nav__link">Login</a></li>
+            <li class="nav__item"><a href="#" class="nav__link">Register</a></li> -->
+        </ul>
+    </nav>
+
+    <div class="start">
+        <h1 class="heading">GadGrad best Grad in all Grads</h1>
+        <p class="sub__heading">Make the world a better place</p>
+        <div class="logo">
+            <i class="fa-solid fa-hospital"></i>
+        </div>
+        <div class="start__link">
+            <a href="{{ url_for('login') }}" class="btn login-btn">Login</a>
+            <a href="{{ url_for('register') }}" class="btn login-btn">Register</a>
+        </div>
+    </div>
+</header>
+
+
+{% include 'partials/footer.html' %}

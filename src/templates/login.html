@@ -1,0 +1,28 @@
+{% include 'partials/header.html' %}
+
+
+<div class="wrapper">
+    
+    <form class="form" action="#">
+        <i class="fa-solid fa-fingerprint form__icon"></i>
+        <p class="form__paragraph">Welcome Back!</p>
+        <label for="email" class="form__label">Username or Email</label>
+        <input id="email" type="email" class="form__input" required>
+        <label for="password" class="form__label">Password</label>
+        <input id="password" type="password" class="form__input" required>
+        <a href="#" class="forget">Forgot Password?</a>
+        <button class="btn form-btn">Sign In</button>
+    </form>
+    <div class="form__box-image">
+        <i class="fa-solid fa-puzzle-piece form__icon"></i>
+<!--        <i class="fa-solid fa-user-plus form__icon"></i>-->
+        <h3 class="form__text">New Here?</h3>
+        <p class="form__text-p">Sign up and make the world a better place for great minds!</p>
+        <a class="btn form-btn signup-btn" href="{{ url_for('register') }}">Sign Up</a>
+    </div>
+</div>
+
+
+
+
+{% include 'partials/footer.html' %}

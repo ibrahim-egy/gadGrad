@@ -1,0 +1,51 @@
+{% include 'partials/header.html' %}
+
+
+<div class="wrapper wrapper-signup">
+    <div class="form-box">
+        <i class="fa-solid fa-puzzle-piece form__icon"></i>
+        <h3 class="form__text form__text-signup">Start Your journey with us.</h3>
+        <p class="form__text-p form__text-p-signup">Discover the best detection AI model out there!</p>
+        <div class="signup__logo">
+            <p><span>Gad</span>Grad</p>
+        </div>
+    </div>
+    <form class="form-signup" action="#">
+        <h3 class="form__text-signup">Create an account</h3>
+
+        <div class="name">
+            <input id="fname" type="text" class="form__input form__input-signup" placeholder="First name" required>
+
+            <input id="lname" type="text" class="form__input form__input-signup" placeholder="Last name" required>
+        </div>
+
+
+        <input id="email" type="email" class="form__input form__input-signup" placeholder="Enter your email" required>
+
+        <div class="gender">
+
+            <input id="male" type="radio" class="form__input form__input-radio-signup" name="gender">
+            <label for="male" class="radio-label">
+                <span class="button"></span>
+                Male
+            </label>
+
+            <input id="female" type="radio" class="form__input form__input-radio-signup" name="gender">
+            <label for="female" class="radio-label">
+                <span class="button"></span>
+                Female
+            </label>
+
+        </div>
+
+
+        <input id="password" type="password" class="form__input form__input-signup" placeholder="Create a password" required>
+
+        <button class="btn form-btn">Create account</button>
+    </form>
+</div>
+
+
+
+
+{% include 'partials/footer.html' %}
