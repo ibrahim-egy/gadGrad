@@ -13,6 +13,7 @@
     --color-text-shaded: rgb(103, 93, 80, .5);
     --form-text-color: #845d68;
     --border-radius: 5px;
+    --background-color: rgb(120 100 105 / 61%);
 }
 
 html {
@@ -21,7 +22,7 @@ html {
     font-family: 'Montserrat', sans-serif;
     font-family: 'Comfortaa', cursive;
     background-image:
-        linear-gradient(to bottom right, var(--color-text-fancy), var(--color-text-fancy)),
+        linear-gradient(to bottom right, var(--background-color), var(--background-color)),
         url("https://images.unsplash.com/photo-1502101872923-d48509bff386?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1632&q=80");
     background-size: cover;
     background-position: right;

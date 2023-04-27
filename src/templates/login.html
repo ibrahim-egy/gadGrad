@@ -3,13 +3,13 @@
 
 <div class="wrapper">
     
-    <form class="form" action="#">
+    <form class="form" action="{{ url_for('login') }}" method="post">
         <i class="fa-solid fa-fingerprint form__icon"></i>
         <p class="form__paragraph">Welcome Back!</p>
         <label for="email" class="form__label">Username or Email</label>
-        <input id="email" type="email" class="form__input" required>
+        <input id="email" name="email" type="email" class="form__input" required>
         <label for="password" class="form__label">Password</label>
-        <input id="password" type="password" class="form__input" required>
+        <input id="password" name="password" type="password" class="form__input" required>
         <a href="#" class="forget">Forgot Password?</a>
         <button class="btn form-btn">Sign In</button>
     </form>
