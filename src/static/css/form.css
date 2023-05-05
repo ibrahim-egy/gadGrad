@@ -20,9 +20,9 @@
 
     background-image:
         linear-gradient(to left, rgba(0, 0, 0, .6), rgba(0, 0, 0, .6)),
-        url("https://images.pexels.com/photos/2387702/pexels-photo-2387702.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+        url("https://images.pexels.com/photos/8378752/pexels-photo-8378752.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
     background-size: cover;
-    background-position: center;
+    background-position: bottom;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -30,11 +30,11 @@
     gap: 1rem;
     color: #eee;
     border-radius: inherit;
+    width: 100%;
 }
 
 .form__text {
     font-weight: 100;
-    margin-top: 5rem;
 }
 
 .form__text-p {
@@ -57,8 +57,9 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    padding: 5rem;
+    padding: 5rem 0rem;
     color: var(--form-text-color);
+    width: 60%;
 
 }
 
@@ -128,7 +129,7 @@
 
 .form-btn:hover,
 .form-btn:focus {
-    background-color: var(--form-text-color);
+    background-color: var(--back-color);
     transform: translateY(-2px);
     box-shadow: 0 .5rem 3rem rgba(0, 0, 0, .3);
 }
@@ -139,9 +140,6 @@
 
 .wrapper-signup {
 
-    padding: 1rem;
-    grid-template-columns: 1fr 2fr;
-    justify-items: center;
 }
 
 .form-box {
@@ -153,10 +151,15 @@
     padding: 2rem;
     color: #eee;
     background-image:
-        linear-gradient(to bottom, rgba(0, 0, 0, .2), rgba(0, 0, 0, .3)),
-        url("https://images.unsplash.com/photo-1682448229587-0851d28000e6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80");
+        linear-gradient(to bottom, rgba(0, 0, 0, .6), rgba(0, 0, 0, .4)),
+        url("../images/reg.jpg");
+    background-size: cover;
+    background-position: left;
     position: relative;
+    overflow: hidden;
+    width: 100%;
 }
+
 
 .signup__logo {
 
@@ -168,7 +171,8 @@
 }
 .signup__logo > p > span {
 
-    color: #ac78ab;
+    color: var(--form-text-color);
+    filter: brightness(200%);
 }
 
 .name {
@@ -196,14 +200,6 @@
     transition: all .2s;
 }
 
-.form__input:focus + .form__label-signup {
-    top: 0%;
-}
-
-.form__input-signup {
-
-}
-
 ::placeholder {
 
     color: rgba(51, 51, 51, .3);
@@ -214,10 +210,28 @@
     display: flex;
     gap: 2rem;
 }
-.form__input-radio-signup {
+.form__input-gender {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2rem;
+    border: none;
+    font-size: 1.8rem;
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-radius: var(--border-radius);
+    color: currentColor;
+    transition: all .1s;
+    user-select: none;
+    gap: 1rem;
+    cursor: pointer;
+    position: relative;
+}
 
-    display: none;
-
+.form__input-gender.checked {
+    border-color: var(--form-text-color);
+    background-color: rgba(18, 85, 107, .4);
+    color: #fff;
 }
 
 .form__input-radio-signup:checked + .radio-label .button {
@@ -226,8 +240,8 @@
 }
 
 .form__input-radio-signup:checked + .radio-label {
-    border-color: var(--color-text-fancy);
-    background-color: rgba(174, 136, 147, .2);
+    border-color: var(--form-text-color);
+    background-color: rgba(18, 85, 107, .4);
 }
 
 .radio-label {

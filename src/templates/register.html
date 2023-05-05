@@ -14,33 +14,29 @@
         <h3 class="form__text-signup">Create an account</h3>
 
         <div class="name">
-            <input id="fname" name="fname" type="text" class="form__input form__input-signup" placeholder="First name" required>
+            <input id="fname" name="fname" type="text" class="form__input form__input-signup" placeholder="First name" tabindex="1" required>
 
-            <input id="lname" name="lname" type="text" class="form__input form__input-signup" placeholder="Last name" required>
+            <input id="lname" name="lname" type="text" class="form__input form__input-signup" placeholder="Last name" tabindex="2" required>
         </div>
 
 
-        <input id="email" name="email" type="email" class="form__input form__input-signup" placeholder="Enter your email" required>
+        <input id="email" name="email" type="email" class="form__input form__input-signup" placeholder="Enter your email" tabindex="3" required>
 
         <div class="gender">
-
-            <input id="male" type="radio" class="form__input form__input-radio-signup" name="gender">
-            <label for="male" class="radio-label">
-                <i class="fa-solid fa-person"></i>
+            <div class="form__input-gender" tabindex="4">
+                <i class="fa-solid fa-person-dress"></i>
                 Male
-            </label>
-
-            <input id="female" type="radio" class="form__input form__input-radio-signup" name="gender">
-            <label for="female" class="radio-label">
+            </div>
+            <div class="form__input-gender" tabindex="5">
                 <i class="fa-solid fa-person-dress"></i>
                 Female
-            </label>
+            </div>
 
         </div>
-
+        <input id="gender" type="hidden" class="gender__input" name="gender">
 
         <input id="password" name="password" type="password" class="form__input form__input-signup" placeholder="Create a password" required>
-
+<!--        <input id="c-password" name="c-password" type="password" class="form__input form__input-signup" placeholder="Confirm password" required>-->
         <button class="btn form-btn">Create account</button>
     </form>
 </div>

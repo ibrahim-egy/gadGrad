@@ -26,8 +26,9 @@ def register():
         last_name = request.form.get('lname')
         email = request.form.get('email')
         password = request.form.get('password')
+        gender = request.form.get('gender')
 
-        print(f"Name: {first_name} {last_name}\nEmail: {email}\nPassword: {password}")
+        print(f"Name: {first_name} {last_name}\nEmail: {email}\nPassword: {password}\nGender: {gender}")
     return render_template('register.html')
 
 
