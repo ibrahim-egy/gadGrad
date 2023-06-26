@@ -1,0 +1,28 @@
+{% include 'partials/header.html' %}
+
+
+<div class="wrapper-result">
+    {% include 'partials/nav.html' %}
+
+    <form action="{{ url_for('result') }}" method="post" enctype="multipart/form-data">
+        <label for="image" class="image_input--label">Upload</label>
+        <input id="image" type="file" name="image" class="image_input" accept="Image/*" capture="environment">
+        <button type="submit" class="btn">Go</button>
+    </form>
+
+
+</div>
+<div class="result">
+    <h1>{{result}}</h1>
+</div>
+
+
+
+
+
+
+
+
+
+
+{% include 'partials/footer.html' %}

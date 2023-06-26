@@ -38,31 +38,22 @@ html {
         url("../images/bg.jpg");
     background-size: cover;
     background-position: right;
+    scroll-behavior: smooth;
 }
 
 
 body {
-    font-size: 2rem;
-    color: var(--color-text);
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 2rem;
+    color: var(--color-text);
+    padding: 10rem 15rem;
 
-}
-
-body {
-
-}
-
-.team {
-    background-color: #eee;
-    height: 50rem;
-    width: 80%;
 }
 
 #header {
-    width: 80%;
-    height: 85%;
+    height: 100%;
     border-radius: 15px 15px 0 0 ;
     background-image:
         linear-gradient(to bottom, var(--back-color), var(--back-color));
@@ -72,8 +63,9 @@ body {
     align-items: center;
     position: relative;
     z-index: 10;
-    padding: 1rem 10rem;
+    padding: 18rem 10rem 1rem 10rem;
     gap: 7.6rem;
+    margin: auto;
 }
 
 .header__bg {
@@ -91,7 +83,12 @@ body {
 .nav {
     display: flex;
     align-items: center;
+    justify-content: center;
     padding: 3rem 0rem;
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    right: 2rem;
 }
 
 .nav__logo {
@@ -180,4 +177,55 @@ body {
 
     background-color: #cfaabc;
     color: #eee;
+}
+
+
+#start {
+
+    height: 100vh;
+    background: rgba(233, 233, 233, .5);
+    width: 100vw;
+
+}
+
+/* RESULT */
+
+
+.wrapper-result {
+
+    width: 100rem;
+    height: 50rem;
+    border-radius: var(--border-radius);
+    background-color: #eee;
+    color: #333;
+    box-shadow: 0rem 0rem 1rem rgba(0, 0, 0, .2);
+    padding: 19rem 1rem 1rem 1rem;
+
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+
+}
+
+.image_input--label {
+    padding: 1.5rem 2rem;
+    background: #333;
+    color: #eee;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+}
+
+.image_input {
+
+    display: none;
+}
+
+.image_form {
+
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin: auto;
 }
