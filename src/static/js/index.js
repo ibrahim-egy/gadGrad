@@ -1,39 +1,69 @@
 
-//Gender Switch functionality
-
-maleBtn = document.querySelectorAll(".form__input-gender")[0]
-femaleBtn = document.querySelectorAll(".form__input-gender")[1]
-genderInput = document.querySelector("#gender");
-
-// Adding eventListeners to male and female buttons
-maleBtn.addEventListener("click", switchMale);
-femaleBtn.addEventListener("click", switchFemale);
-maleBtn.addEventListener("keypress", switchMale);
-femaleBtn.addEventListener("keypress", switchFemale);
 
 
-//functions switching styles and setting value to hidden gender input
-function switchMale(e) {
+const userInput = document.querySelector('.image_input')
+userInput.addEventListener('change', displayImage)
+const image = document.querySelector(".user-input-image")
+const resultButton = document.querySelector(".result-btn")
+resultButton.addEventListener('click', getResult)
 
-    if (e.type === "keypress" && e.key !== "Enter") {
-        return
-    }
-    femaleBtn.classList.remove("checked");
-    maleBtn.classList.add("checked");
-    genderInput.value = maleBtn.innerText.toLowerCase();
+const resultBox =  document.querySelector(".result")
+const result =  document.querySelectorAll(".result-col")[1]
+
+
+function displayImage(event) {
+    flipLoading()
+    resultBox.classList.remove('visible')
+    const url = URL.createObjectURL(event.target.files[0])
+    image.src = url
+    image.classList.add('visible')
+    resultButton.classList.add('visible')
+    flipLoading()
 }
 
-function switchFemale(e) {
-    if (e.type === "keypress" && e.key !== "Enter") {
-        return
-    }
-    maleBtn.classList.remove("checked");
-    femaleBtn.classList.add("checked");
-    genderInput.value = femaleBtn.innerText.toLowerCase();
+async function getResult () {
+    flipLoading()
+    await uploadFile()
+    flipLoading()
+}
+
+function flipLoading () {
+    const preLoader = document.querySelector(".preloader")
+    preLoader.classList.toggle('display')
+}
+
+function updateUI(data) {
+
+    result.innerText = data.result
+    resultBox.classList.add('visible')
+    resultButton.classList.remove('visible')
+}
+
+const uploadFile = async() => {
+
+    const file = userInput.files[0]
+    const fd = new FormData()
+    fd.append('uploadImage', file)
+    await postDataFile('/result', fd)
+    .then (data => {
+        updateUI(data)
+    })
 }
 
 
-function validateUsername() {
 
 
+const postDataFile = async (url='', data) => {
+
+    const response = await fetch(url, {
+        method: 'POST',
+        body: data,
+    })
+    try {
+        const newData = await response.json()
+        return newData
+    }
+    catch (error) {
+        console.log("error: " + error)
+    }
 }

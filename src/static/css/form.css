@@ -12,6 +12,7 @@
     position: relative;
     overflow: hidden;
     justify-items: center;
+    background-image: url("../images/bg.png");
 }
 
 

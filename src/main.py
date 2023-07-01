@@ -1,11 +1,12 @@
+import os
+
 from flask import Flask, render_template, request, url_for, redirect
 from detect import detect
-from database import register_user, add_history
-from numpy import asarray
-from PIL import Image
+from database import register_user, add_history, get_history
 
 app = Flask(__name__)
 app.secret_key = "This is a secret"
+# testing
 EMAIL = "ibrahim@gmail.com"
 
 
@@ -14,19 +15,33 @@ def home():
     return render_template('index.html')
 
 
+@app.route('/instructions')
+def instructions():
+    return render_template('instructions.html')
+
+
+@app.route('/history')
+def history():
+    his = get_history(EMAIL)
+    return render_template('history.html', history=his)
+
+
 @app.route('/result', methods=["GET", "POST"])
 def result():
     if request.method == "POST":
-        image = request.files.get('image')
-        image.save(f"static/upload/{image.filename}")
-        # img = Image.open(f"static/upload/{image.filename}")
+        image = request.files.get('uploadImage')
 
-        res = detect(f"static/upload/{image.filename}")
-        # image_array = asarray(img)
+        path = f"static/upload/{image.filename}"
+        image.save(path)
 
-        # add_history(EMAIL, image_array, res)
+        res = detect(path)
+        add_history(EMAIL, path, res)
 
-        return render_template('result.html', result=res)
+        os.remove(path)
+
+        return {
+            'result': res
+        }
     return render_template('result.html', result="")
 
 

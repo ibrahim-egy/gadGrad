@@ -1,0 +1,30 @@
+{% include 'partials/header.html' %}
+
+
+{% include 'partials/nav.html' %}
+
+{% if history|length == 0 %}
+
+<h1>
+    No history yet
+    <br>
+    <a class="btn" href="{{ url_for('result') }}">Try it now!</a>
+</h1>
+
+{% else %}
+<div class="history-table">
+    {% for item in history: %}
+    <div class="history-item">
+        <img class="history-image" src="{{ item.src }}" alt="result image">
+        <p class="history-result">{{ item.result }}</p>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+
+
+
+
+
+
+{% include 'partials/footer.html' %}
