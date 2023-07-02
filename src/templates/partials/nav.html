@@ -1,17 +1,22 @@
 <nav class="nav">
 
         <ul class="nav__list">
-<!--            <li class="nav__item active"><a href="#" class="nav__link">Home</a></li>-->
             <li class="nav__item"><a href="{{ url_for('result') }}" class="nav__link">Detect</a></li>
             <li class="nav__item"><a href="{{ url_for('instructions') }}" class="nav__link">How it works</a></li>
-            <li class="nav__item"><a href="{{ url_for('history') }}" class="nav__link">History</a></li>
+            {% if logged_in %}
+                <li class="nav__item"><a href="{{ url_for('history') }}" class="nav__link history">History</a></li>
+            {% endif %}
             <a href="{{ url_for('home') }}" class="nav-link">
                 <div class="nav__logo">
                  <i class="fa-solid fa-stethoscope fa-2x"></i>
                     <p><span>Gad</span>Grad</p>
                 </div>
             </a>
-            <li class="nav__item"><a href="{{ url_for('login') }}" class="nav__link border">Login</a></li>
-            <li class="nav__item"><a href="{{ url_for('register') }}" class="nav__link border">Register</a></li>
+            {% if not logged_in %}
+                <li class="nav__item"><a href="{{ url_for('login') }}" class="nav__link border">Login</a></li>
+                <li class="nav__item"><a href="{{ url_for('register') }}" class="nav__link border">Register</a></li>
+            {% else %}
+                <li class="nav__item"><a href="{{ url_for('logout') }}" class="nav__link border">Logout</a></li>
+            {% endif %}
         </ul>
     </nav>

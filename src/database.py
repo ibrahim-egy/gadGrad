@@ -17,11 +17,9 @@ def register_user(fname, lname, email, password, gender):
         "password": generate_password_hash(password),
         "email": email,
         "gender": gender,
-        "history": {}
+        "history": []
     }
     users.insert_one(new_user)
-
-    return email
 
 
 def login_user(email, password):
@@ -29,8 +27,15 @@ def login_user(email, password):
         "email": email
     })
 
-    if check_password_hash(password=password, pwhash=user['password']):
-        print("Logged in successfully")
+    if user:
+        if check_password_hash(password=password, pwhash=user['password']):
+            print("Logged in successfully")
+            # Sending user first name to get saved in session
+            return True, user['name'].split()[0]
+        else:
+            return False
+    else:
+        return False
 
 
 def add_history(email, path, res):
@@ -41,7 +46,7 @@ def add_history(email, path, res):
     })
 
     history = user.get('history')
-    if len(history) > 5:
+    if len(history) >= 5:
 
         history = history[1:]
         history.append(
@@ -56,8 +61,8 @@ def add_history(email, path, res):
                 "email": email
             },
             {'$set':
-                {"history": history}
-            }
+                 {"history": history}
+             }
         )
     else:
         users.update_one(
@@ -104,6 +109,5 @@ def get_history(email):
         image_string = item["image_data"]
         path = convert_base64_to_image(image_string, item['name'])
         item["src"] = path
-
 
     return history[::-1]
