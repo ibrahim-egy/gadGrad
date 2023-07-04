@@ -2,8 +2,29 @@
   {% if messages %}
     <ul class=flashes>
     {% for message in messages %}
-      <li>{{ message }}</li>
+      {% if message.endswith('-error') %}
+        {% set message = message.split('-')[0] %}
+        <li><i class="fa-regular fa-circle-xmark error-icon"></i>{{ message }}</li>
+      {% elif message.startswith('Welcome') %}
+        {% set m = "Welcome back " %}
+        {% set n = message.split('back ')[1] %}
+        <li>{{ m }}<span>{{ n }}</span></li>
+      {% else %}
+        <li><i class="fa-regular fa-circle-check error-icon"></i>{{ message }}</li>
+      {% endif %}
     {% endfor %}
     </ul>
   {% endif %}
 {% endwith %}
+
+
+<!--{% set message = ['ibrahim', 'gad -error'] %}-->
+<!--    <ul class=flashes>-->
+<!--    {% for message in messages %}-->
+<!--      {% if message.endswith('-error') %}-->
+<!--        <li style="color: red">{{ message }}</li>-->
+<!--      {% else %}-->
+<!--        <li style="color: green">{{ message }}</li>-->
+<!--      {% endif %}-->
+<!--    {% endfor %}-->
+<!--    </ul>-->

@@ -2,8 +2,7 @@ import os
 from flask import Flask, render_template, request, url_for, redirect, session, flash
 from detect import detect
 from database import register_user, add_history, get_history, login_user
-from flask_session import Session
-import glob
+from flask_session.__init__ import Session
 
 app = Flask(__name__)
 app.secret_key = "This is a secret"
@@ -15,9 +14,6 @@ Session(app)
 
 @app.route('/')
 def home():
-    print(session.get('email'))
-    print(session.get('logged_in'))
-    print(session.get('username'))
     return render_template('index.html', logged_in=session.get('logged_in'))
 
 
@@ -65,10 +61,9 @@ def register():
         response = register_user(first_name, last_name, email, password, gender)
 
         if response == 400:
-            flash("email already exists Login instead!")
-
+            flash("Email already exists ! -error")
         elif response == 200:
-            flash("Account Created Successfully!")
+            flash("Account created successfully !")
         return redirect(url_for('login'))
     return render_template('register.html')
 
@@ -81,18 +76,17 @@ def login():
         response = login_user(email, password)
 
         if response[1] == 404:
-            flash("User does not exist")
-            flash("Create new account")
+            flash("User with this email does not exist ! -error")
             return redirect(url_for('register'))
 
         elif response[1] == 401:
-            flash("Password Incorrect")
+            flash("Password Incorrect ! -error")
 
         elif response[1]:
             session['email'] = email
             session['logged_in'] = True
             session['username'] = response[1]
-            flash(f"Welcome Back {session.get('username')}")
+            flash(f"Welcome back {session.get('username')}")
             return redirect(url_for('home'))
 
         return redirect(url_for('login'))

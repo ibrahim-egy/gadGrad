@@ -281,9 +281,9 @@ body {
 }
 
 .history {
-    color: var(--important-color);
+    color: var(--color-text-fancy);
     position: relative;
-    border: 2px solid var(--important-color);
+    border: 2px solid var(--color-text-fancy);
     border-radius: 5px;
     padding: 1rem 2rem;
     animation-duration: 1.2s;

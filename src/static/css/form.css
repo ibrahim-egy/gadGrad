@@ -10,7 +10,6 @@
     display: grid;
     grid-template-columns: 3fr 2fr;
     position: relative;
-    overflow: hidden;
     justify-items: center;
     background-image: url("../images/bg.png");
 }

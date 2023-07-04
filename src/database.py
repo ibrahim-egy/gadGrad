@@ -27,6 +27,7 @@ def register_user(fname, lname, email, password, gender):
         "history": []
     }
     users.insert_one(new_user)
+    return 200
 
 
 def login_user(email, password):
