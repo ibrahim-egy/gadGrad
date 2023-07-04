@@ -1,7 +1,8 @@
 {% include 'partials/header.html' %}
 {% include 'partials/nav.html' %}
 
-<div class="wrapper-result">
+<div class="wrapper-result ref">
+    {% include 'partials/error.html' %}
     <h1 class="result-heading">Autism Detector</h1>
     <p class="result-note">PS - Use cropped face images for higher accuracy</p>
     <form class="result-form" action="#" method="post" enctype="multipart/form-data" id="form">

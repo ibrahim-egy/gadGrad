@@ -12,6 +12,13 @@ users = db['Users']
 
 
 def register_user(fname, lname, email, password, gender):
+    user = users.find_one({
+        'email': email
+    })
+
+    if user:
+        return 400
+
     new_user = {
         "name": f"{fname} {lname}",
         "password": generate_password_hash(password),
@@ -33,9 +40,10 @@ def login_user(email, password):
             # Sending user first name to get saved in session
             return True, user['name'].split()[0]
         else:
-            return False
+            return False, 401
     else:
-        return False
+
+        return False, 404
 
 
 def add_history(email, path, res):

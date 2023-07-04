@@ -1,11 +1,11 @@
 .flashes {
 
     position: absolute;
-    top: 4rem;
+    top: -4rem;
     left: 50%;
-    transform: translateX(-50%);
     z-index: 950;
-    list-style: none
+    transform: translateX(-50%);
+    list-style: none;
 
 }
 
@@ -14,3 +14,13 @@
     color: #d4a7da;
 
 }
+
+.flashes li span {
+    font-weight: 700;
+    font-size: larger;
+}
+
+.ref {
+    position: relative;
+}
+

@@ -11,7 +11,6 @@ app.secret_key = "This is a secret"
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
-EMAIL = "ibrahim@gmail.com"
 
 
 @app.route('/')
@@ -63,7 +62,13 @@ def register():
         password = request.form.get('password')
         gender = request.form.get('gender')
 
-        register_user(first_name, last_name, email, password, gender)
+        response = register_user(first_name, last_name, email, password, gender)
+
+        if response == 400:
+            flash("email already exists Login instead!")
+
+        elif response == 200:
+            flash("Account Created Successfully!")
         return redirect(url_for('login'))
     return render_template('register.html')
 
@@ -73,14 +78,23 @@ def login():
     if request.method == "POST":
         email = request.form.get('email')
         password = request.form.get('password')
-        print(f"Email: {email}\nPassword: {password}")
-        new_user = login_user(email, password)
-        if new_user:
+        response = login_user(email, password)
+
+        if response[1] == 404:
+            flash("User does not exist")
+            flash("Create new account")
+            return redirect(url_for('register'))
+
+        elif response[1] == 401:
+            flash("Password Incorrect")
+
+        elif response[1]:
             session['email'] = email
             session['logged_in'] = True
-            session['username'] = new_user[1]
+            session['username'] = response[1]
             flash(f"Welcome Back {session.get('username')}")
             return redirect(url_for('home'))
+
         return redirect(url_for('login'))
     return render_template('login.html')
 
