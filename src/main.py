@@ -3,17 +3,14 @@ from flask import Flask, render_template, request, url_for, redirect, session, f
 from detect import detect
 from database import register_user, add_history, get_history, login_user
 from flask_session.__init__ import Session
-
 app = Flask(__name__)
+
 app.secret_key = "This is a secret"
 # Creating Session Configs
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
-# =================================================#
-# this is the changesss
-# =================================================#
 
 @app.route('/')
 def home():

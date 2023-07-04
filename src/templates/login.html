@@ -1,6 +1,6 @@
 {% include 'partials/header.html' %}
 {% include 'partials/nav.html' %}
-<div class="wrapper ref">
+<div class="wrapper">
     {% include 'partials/error.html' %}
     <form class="form" action="{{ url_for('login') }}" method="post">
         <i class="fa-solid fa-fingerprint form__icon"></i>
@@ -13,6 +13,9 @@
         <button class="btn form-btn">Sign In</button>
     </form>
     <div class="form__box-image">
+        <div class="signin__logo">
+            <p><span>Gad</span>Grad</p>
+        </div>
         <i class="fa-solid fa-puzzle-piece form__icon"></i>
 <!--        <i class="fa-solid fa-user-plus form__icon"></i>-->
         <h3 class="form__text">New Here?</h3>

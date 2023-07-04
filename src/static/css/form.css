@@ -30,6 +30,7 @@
     gap: 1rem;
     color: #eee;
     border-radius: inherit;
+    position: relative;
     width: 100%;
 }
 
@@ -169,6 +170,20 @@
     color: var(--form-text-color);
     filter: brightness(200%);
 }
+
+.signin__logo {
+
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+.signin__logo > p > span {
+
+    color: #47af75;
+}
+
 
 .name {
 

@@ -33,6 +33,11 @@ html {
     scroll-behavior: smooth;
 }
 
+@media (max-height: 50em) {
+    html {
+        font-size: 56.25%;
+    }
+}
 
 body {
     display: flex;
@@ -46,7 +51,7 @@ body {
 #header {
     height: 80vh;
     width: 80vw;
-    border-radius: 15px 15px 0 0 ;
+    border-radius: 15px;
     background-image:
         linear-gradient(to bottom, var(--back-color), var(--back-color));
     box-shadow: 0rem 0rem 1rem rgba(0, 0, 0, .2);
