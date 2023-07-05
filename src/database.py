@@ -4,7 +4,6 @@ import base64
 from PIL import Image
 from io import BytesIO
 
-# mongo_atlas_url = "mongodb+srv://ibrahim:h0c2YhfienNaTiL1@cluster0.dvytmrt.mongodb.net/?retryWrites=true&w=majority"
 mongo_atlas_url = "mongodb://localhost:27017/"
 client = MongoClient(mongo_atlas_url, 27017)
 db = client['gadGradDB']
